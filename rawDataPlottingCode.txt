@@ -1,0 +1,27 @@
+%Flipped
+h = 1
+for i = [30,60,120,240,480] %rawData column
+for j = [1,500,1000,2000,9000]	%field number
+event = annotatedEventData(j).arrayEventNumber	%event number
+t = figure('Visible','off')
+plot(flipud(annotatedEventData(j).rawData(:,i)))
+title(['The rawData column ' num2str(i) ' for the event ' num2str(event)])
+saveas(gcf,sprintf('figure%d.png',h))
+h = h + 1
+end
+end
+
+
+
+%Normal
+h = 1
+for i = [30,60,120,240,480] %rawData column
+for j = [1,500,1000,2000,9000]	%field number
+event = annotatedEventData(j).arrayEventNumber %event number
+t = figure('Visible','off')
+plot(annotatedEventData(j).rawData(:,i))
+title(['The rawData column ' num2str(i) ' for the event ' num2str(event)])
+saveas(gcf,sprintf('figure%d.png',h))
+h = h + 1
+end
+end

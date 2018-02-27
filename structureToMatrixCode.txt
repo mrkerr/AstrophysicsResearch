@@ -1,0 +1,8 @@
+%Converts struct to matrix
+A = zeros(10000, 31397); 	%Creates matrix of zero's
+for i = [1:10000] 		%Field number
+event = annotatedEventData(i).arrayEventNumber; %Event number
+B = reshape(annotatedEventData(i).rawData,1,31936);	%Turns raw data matrix into 1x31936 array
+A(i,1) = event;			%Makes first element of each row the event number
+A(i,[2:31937]) = B(1:31936); 	%Following event number is the reshaped matrix
+end
